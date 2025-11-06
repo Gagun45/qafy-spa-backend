@@ -1,0 +1,22 @@
+# Dependency Directories
+/node_modules
+
+# Logs and npm debug files
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+
+# Compiled TypeScript Output
+# This matches the 'outDir' from your tsconfig.json (we used './dist')
+/dist
+
+# Editor and OS generated files
+.DS_Store
+.vscode/
+
+# Environment variables
+.env
+.env.*
+
+# ts-node and cache files
+.ts-node/
