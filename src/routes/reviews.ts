@@ -22,7 +22,7 @@ router.get("/", async (_req: Request, res: Response) => {
       throw new Error("Failed to fetch google reviews");
     }
     const data = await response.json();
-    return res.json(data.reviews.slice(0, 3) || []);
+    return res.json(data.reviews || []);
   } catch (err) {
     console.log("Error fetching reviews: ", err);
     res.status(500).json({ message: "Failed to fetch reviews" });
