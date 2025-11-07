@@ -8,7 +8,6 @@ import nodemailer from "nodemailer";
 
 dotenv.config();
 
-// Initialize the Express application
 const app: Express = express();
 
 export const transporter = nodemailer.createTransport({
@@ -22,20 +21,6 @@ export const transporter = nodemailer.createTransport({
 app.use(cors());
 app.use(express.json());
 
-// app.use("/test-email", async (req: Request, res: Response) => {
-//   try {
-//     await transporter.sendMail({
-//       from: `"Test Bot" <${process.env.GMAIL_EMAIL}>`,
-//       to: process.env.TO_EMAIL,
-//       subject: "✅ Test Email",
-//       text: "This is a test email sent from Express backend!",
-//     });
-//     return res.json({ success: true });
-//   } catch (err) {
-//     console.log("Email error: ", err);
-//     return res.status(500).json({ success: false });
-//   }
-// });
 
 app.use("/api/reviews", reviewsRouter);
 app.use("/api/contact", contactRouter);
