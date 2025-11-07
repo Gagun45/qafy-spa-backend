@@ -10,7 +10,7 @@ dotenv.config();
 
 const app: Express = express();
 
-const transporter = nodemailer.createTransport({
+export const transporter = nodemailer.createTransport({
     // 1. Explicitly set the host
     host: "smtp.gmail.com", 
     
