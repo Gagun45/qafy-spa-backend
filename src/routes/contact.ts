@@ -27,7 +27,7 @@ router.post("/", upload.array("files"), async (req: Request, res: Response) => {
       })) ?? [];
 
     await resend.emails.send({
-      from: "Qafy Mobile <onboarding@resend.dev>", // Must be a verified domain/sender in Resend
+      from: "Qafy Mobile <denys@qafy.info>", // Must be a verified domain/sender in Resend
       to: process.env.TO_EMAIL!,
       subject: "New contact message",
       text: `
