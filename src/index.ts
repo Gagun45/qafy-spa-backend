@@ -10,12 +10,26 @@ dotenv.config();
 
 const app: Express = express();
 
-export const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.GMAIL_EMAIL,
-    pass: process.env.GMAIL_PASS,
-  },
+const transporter = nodemailer.createTransport({
+    // 1. Explicitly set the host
+    host: "smtp.gmail.com", 
+    
+    // 2. Explicitly set the port to 587 (StartTLS is generally safer and more common than 465)
+    port: 587,              
+    
+    // 3. MUST be false for port 587 (StartTLS)
+    secure: false,          
+    
+    // 4. Authentication (confirmed to be loaded)
+    auth: {
+        user: process.env.GMAIL_EMAIL,
+        pass: process.env.GMAIL_PASS, 
+    },
+    
+    // 5. CRITICAL: Increase timeout to handle Render's potential network latency
+    // Increase to 20-30 seconds (20000ms is a good start)
+    connectionTimeout: 20000, 
+    
 });
 
 app.use(cors());
